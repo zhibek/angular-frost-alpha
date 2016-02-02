@@ -1,0 +1,185 @@
+<main>
+
+      <div class="content">
+          <section class="intro">
+              <div class="layout-wrap">
+                  <div class="inner">
+
+            <h1> Sport Relief Giving Pages</h1>
+
+            <h1> </h1>
+
+            <h3>
+
+            </h3>
+
+                            <p>Whether you're fundraising on your own or with others, set up a Sport Relief Giving Page to get sponsored and collect cash instantly and securely online.</p>
+
+                  </div>
+              </div>
+          </section> <!-- /intro -->
+      </div>
+
+      <div id="basket-container">
+      </div>
+
+      <div class="content ">
+        <form method="POST">
+
+    <div id="age_check">
+      <div class="layout-wrap centered">
+
+        <fieldset class="col-sm-10 col-sm-push-1">
+            <h2>How old are you?</h2>
+
+          <div id="age_choice" class="age-choice">
+
+            <div class="form-item-wrapper">
+
+              <input id="age_child" name="age" type="radio" value="junior" />
+              <label for="age_child" class="age-u16" id="u16-radio-text"><span></span>Under 16</label>
+
+            </div>
+
+            <div class="form-item-wrapper">
+
+              <input id="age_adult" name="age" type="radio" value="adult" />
+              <label for="age_adult" class="age-o16" id="o16-radio-text" ><span></span>16 or over</label>
+
+            </div>
+          </div>
+
+        </fieldset>
+
+      </div>
+    </div>
+
+    <!-- Over 16 content -->
+
+    <div id="choice_options" class="layout-wrap">
+
+      <h2><strong>How will you be fundraising and taking part?</strong></h2>
+
+        <div id="toggle_initial_off">
+
+          <section class="sub-1 col-sm-4 with-gutters">
+
+            <img src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/SR16/images/content/registration/non-event/non-event-individual.jpg" alt="">
+
+              <h3 id="ind-journey-text-header">I'm fundraising on my own
+
+                <span class="hint">A personal Giving Page is perfect for people fundraising on their own be it a sponsored silence or bike ride. You can personalise it with photos, send “please sponsor me” messages and turn it into an online bucket to collect the cash. It collects all the cash you raise and adds it automatically to your fundraising total</span>
+
+              </h3>
+
+<p id="ind-journey-text-body">If you're doing a solo activity like a sponsored silence, this is where you start.</p>
+            <input id="fm-on-my-own" class="button button--purple" name="submit[individual]" value="Set up My Own Page" type="submit" />
+
+          </section> <!-- sub-1 -->
+
+          <section id="toggle_fundraising_with_others" class="sub-2 col-sm-4 with-gutters adult-only">
+
+            <img src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/SR16/images/content/registration/non-event/non-event-join-team.jpg" alt="">
+
+              <h3 id="team-journey-text-header" class="long-text">I'm fundraising with others
+
+                <span class="hint">A Team Giving Group Page should be set up if you are fundraising with other people if that’s with friends, family or on behalf of your School, Nursery or Youth Group. It enables a fundraising teams to raise money towards a collective team total. Each team member’s individual sponsorship will count towards the team total – and you’ll be able to be sponsored as a team, nursery, primary school, secondary school or youth group if you wish. By setting up a Team Giving Page you will become the Team Captain and be responsible for inviting other people to join your Team and personalising the Team Giving Page. Whenever anyone joins your team they will get their own personal Giving Page too.</span>
+
+              </h3>
+
+<p id="ind-journey-text-body">If you want to fundraise with friends, family or on behalf of your School, Nursery or Youth Group, become a Team Captain and set up a new fundraising team Giving Page here.</p>
+            <input id="fm-set-up-team" class="button button--purple" name="submit[create-team]" value="Set up a Team Page" type="submit" />
+
+          </section> <!-- sub-2 -->
+
+          <section class="sub-3 col-sm-4 with-gutters">
+
+            <img src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/SR16/images/content/registration/non-event/non-event-with-others.jpg" alt="">
+
+              <h3 id="join-journey-text-header">I'm joining an existing fundraising team
+
+                <span class="hint">Join an existing fundraising team and you will be asked to set up a personal Giving Page. Any sponsorship you collect on your Giving Page will go to a collective total on your Team's Giving Page. Your Team Captain will be in charge of your Team's Giving Page but you can track your Team's progress and invite other Team Members to join via your own Giving Page.</span>
+
+              </h3>
+
+<p id="join-journey-text-body">To join other people who you know are fundraising, search for an existing fundraising team here, by entering the Team or Team Captain's name.</p>
+            <div class="search-box search">
+
+              <div class="search-fields-wrap">
+                  <input class="form-input" name="team_search" id="fm-search-teams" data-submit-with="submit-team-search" type="search" placeholder="Search for a Team" />
+                  <input id="submit" name="submit[join-team]" value=" " data-btn="submit-team-search" class="button button--purple" type="submit" />
+              </div>
+
+            </div><!-- /search-box -->
+
+          </section>
+
+        </div>
+
+    </div> <!-- /#choice_options -->
+
+<script type="text/javascript">
+
+	$( document ).ready( function () {
+
+		var ageChoiceBtns =  $( '#age_choice' ),
+			optionsContainer = $( '#choice_options' ),
+			contentOff = $( '#toggle_initial_off section' ),
+			contentAdult = $( '.adult-only' ),
+			adultContinue = $( '#adult_continue' );
+
+		// Disable/grey out journey choice options on initial page load
+		contentOff.toggleFields('off');
+
+		if ( $( '#age_child' ).attr( 'checked' ) == 'checked' ) {
+			contentOff.toggleFields( 'off' );
+			$( '#toggle_junior' ).show();
+		} else if ( $( '#age_adult' ).attr( 'checked' ) == 'checked' ) {
+			contentOff.toggleFields( 'on' );
+
+			if ( $( window ).width() > 768 ) {
+				optionsContainer.bringIntoView();
+			}
+		}
+
+		// Enable/disable the options based on age buttons
+		ageChoiceBtns.on( 'change', function ( event ) {
+			var tgt = $( event.target ),
+				radio = tgt.parent().find( 'input[type=radio]' ),
+				val = radio.val();
+
+			// enable adult options for o16s
+			if ( val === 'adult' ) {
+				contentOff.toggleFields( 'on' );
+			}
+
+			// disable adult options for u16s
+			if ( val === 'junior' ) {
+				contentAdult.toggleFields( 'off' );
+				contentAdult.siblings().toggleFields( 'on' );
+			}
+
+      if ( $( window ).width() > 768 ) {
+        optionsContainer.bringIntoView();
+      }
+		});
+
+		// Enable buttons when Grab a Grown Up link is clicked
+		adultContinue.on( 'click', function ( event ) {
+			var tgt = $( event.target );
+
+			contentOff.filter( '.sub-2, .sub-3' ).toggleFields( 'on' );
+
+			if ( $( window ).width() > 768 ) {
+				optionsContainer.bringIntoView();
+			}
+		});
+
+	});
+
+</script>
+
+        </form>
+    </div>
+
+</main>
