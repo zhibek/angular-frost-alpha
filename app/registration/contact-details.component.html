@@ -220,7 +220,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
 
 <fieldset class="fieldset--border-top affiliates">
 
-  <h2>Are you fundraising on behalf of: <span class="hint">This will help us to know who is fundraising for us.</span></h2>
+  <h2>Are you fundraising on behalf of: <span class="hint" [hidden]="true">This will help us to know who is fundraising for us.</span></h2>
 
 </fieldset>
 
@@ -262,7 +262,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
 
           <div class="form-item-wrapper">
 
-            <label for="fm-company">Please select from the list below * <span class="hint">Make your money go further! If you work for one of our fabulous partners listed here, let us know and your fundraising will be added to their total. Even better, if your company runs a matched giving scheme, they may be able to match the total you have raised. Please select their name from the list to allow us to share your name, email address, and amount raised with your company to help them make a further donation to us (don't worry, they are only allowed to use your details for this purpose, and not to communicate with you about your fundraising).</span></label>
+            <label for="fm-company">Please select from the list below * <span class="hint" [hidden]="true">Make your money go further! If you work for one of our fabulous partners listed here, let us know and your fundraising will be added to their total. Even better, if your company runs a matched giving scheme, they may be able to match the total you have raised. Please select their name from the list to allow us to share your name, email address, and amount raised with your company to help them make a further donation to us (don't worry, they are only allowed to use your details for this purpose, and not to communicate with you about your fundraising).</span></label>
               <select class="form-select" id="fm-company" name="company" data-conditionalon="affiliation-partner">
                 <option  value="">Select CR Partner</option>
                               <option  value="364">Sainsbury's</option>
