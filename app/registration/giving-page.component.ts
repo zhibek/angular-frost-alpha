@@ -3,10 +3,12 @@ import {Router} from 'angular2/router'
 import {NgForm} from 'angular2/common';
 
 import {RegistrationService} from './registration.service';
+import {ProgressBarComponent} from './progress-bar.component';
 
 @Component({
   selector: 'giving-page',
-  templateUrl: 'app/registration/giving-page.component.html'
+  templateUrl: 'app/registration/giving-page.component.html',
+  directives: [ProgressBarComponent]
 })
 
 export class GivingPageComponent {

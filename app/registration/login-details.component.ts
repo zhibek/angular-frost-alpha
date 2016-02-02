@@ -3,10 +3,12 @@ import {Router} from 'angular2/router'
 import {NgForm} from 'angular2/common';
 
 import {RegistrationService} from './registration.service';
+import {ProgressBarComponent} from './progress-bar.component';
 
 @Component({
   selector: 'login-details',
-  templateUrl: 'app/registration/login-details.component.html'
+  templateUrl: 'app/registration/login-details.component.html',
+  directives: [ProgressBarComponent]
 })
 
 export class LoginDetailsComponent {

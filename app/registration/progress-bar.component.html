@@ -1,0 +1,30 @@
+<div class="progress-bar">
+
+  <a class="back-link">back</a>
+    <!-- 3 -->
+  <ul class="layout-wrap steps-3">
+
+        <li class="cell first" [class.active]="isActive('login-details')" [class.done]="isDone('login-details')">
+          <a class="step-link" [routerLink]="['/Registration/LoginDetails']">
+            <span class="step">1/3 :</span>
+            <span class="title">Login Details</span>
+          </a>
+        </li>
+
+        <li class="cell" [class.active]="isActive('contact-details')" [class.done]="isDone('contact-details')">
+          <a class="step-link" [routerLink]="['/Registration/ContactDetails']">
+            <span class="step">2/3 :</span>
+            <span class="title">Contact Details</span>
+          </a>
+        </li>
+
+        <li class="cell last" [class.active]="isActive('giving-page')" [class.done]="isDone('giving-page')">
+          <a class="step-link" [routerLink]="['/Registration/GivingPage']">
+            <span class="step">3/3 :</span>
+            <span class="title">Complete Your Giving Page</span>
+          </a>
+        </li>
+
+  </ul>
+
+</div>
