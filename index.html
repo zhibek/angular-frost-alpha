@@ -1,8 +1,46 @@
-<html>
+<!DOCTYPE html>
+<html class="nojs" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Person">
 
   <head>
 
     <base href="/">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/SR16/images/ui/logo/sr_logo.png" />
+    <meta property="og:description" content="" />
+
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/SR16/images/ui/logo/sr_logo.png">
+
+    <link rel="shortcut icon" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/base/images/favicon.ico" type="image/x-icon" />
+    <link rel="image_src" type="image/jpeg" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/base/images/logos/base.png" />
+
+    <!-- hosted knockout font -->
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7285574/670848/css/fonts.css" />
+    <!-- All browser except IE 8 and below -->
+    <!--[if (!IE)|(gt IE 9)]><!-->
+    <link rel="stylesheet" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/styles_css" />
+    <!--<![endif]-->
+
+    <!-- IE 9 only -->
+    <!--[if IE 9]>
+    <link rel="stylesheet" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/styles_css_split_1" />
+    <link rel="stylesheet" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/styles_css_split_2" />
+    <![endif]-->
+
+    <!-- IE 9 below only -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/oldie_css" />
+    <![endif]-->
+
+    <link rel="stylesheet" media="print" href="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/print_css" />
 
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
@@ -10,6 +48,7 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
     <script>
       System.config({
@@ -24,10 +63,27 @@
         .then(null, console.error.bind(console));
     </script>
 
+    <script type="text/javascript" src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/global_js"></script>
+    <script type="text/javascript" src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/init_js"></script>
+    <script type="text/javascript" src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assetic/SR16/registration_js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://frostcdn-dev.comicrelief.com/_static/3540ee68412954cc058513d9230e8c708ced536f/assets/layouts/base/js/library/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'ovy6xvu',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+
   </head>
 
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+  <my-app>Loading...</my-app>
 
 </html>
