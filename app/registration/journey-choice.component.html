@@ -120,67 +120,6 @@
 
     </div> <!-- /#choice_options -->
 
-<script type="text/javascript">
-
-	$( document ).ready( function () {
-
-		var ageChoiceBtns =  $( '#age_choice' ),
-			optionsContainer = $( '#choice_options' ),
-			contentOff = $( '#toggle_initial_off section' ),
-			contentAdult = $( '.adult-only' ),
-			adultContinue = $( '#adult_continue' );
-
-		// Disable/grey out journey choice options on initial page load
-		contentOff.toggleFields('off');
-
-		if ( $( '#age_child' ).attr( 'checked' ) == 'checked' ) {
-			contentOff.toggleFields( 'off' );
-			$( '#toggle_junior' ).show();
-		} else if ( $( '#age_adult' ).attr( 'checked' ) == 'checked' ) {
-			contentOff.toggleFields( 'on' );
-
-			if ( $( window ).width() > 768 ) {
-				optionsContainer.bringIntoView();
-			}
-		}
-
-		// Enable/disable the options based on age buttons
-		ageChoiceBtns.on( 'change', function ( event ) {
-			var tgt = $( event.target ),
-				radio = tgt.parent().find( 'input[type=radio]' ),
-				val = radio.val();
-
-			// enable adult options for o16s
-			if ( val === 'adult' ) {
-				contentOff.toggleFields( 'on' );
-			}
-
-			// disable adult options for u16s
-			if ( val === 'junior' ) {
-				contentAdult.toggleFields( 'off' );
-				contentAdult.siblings().toggleFields( 'on' );
-			}
-
-      if ( $( window ).width() > 768 ) {
-        optionsContainer.bringIntoView();
-      }
-		});
-
-		// Enable buttons when Grab a Grown Up link is clicked
-		adultContinue.on( 'click', function ( event ) {
-			var tgt = $( event.target );
-
-			contentOff.filter( '.sub-2, .sub-3' ).toggleFields( 'on' );
-
-			if ( $( window ).width() > 768 ) {
-				optionsContainer.bringIntoView();
-			}
-		});
-
-	});
-
-</script>
-
         </form>
     </div>
 

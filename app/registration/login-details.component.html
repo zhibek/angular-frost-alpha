@@ -29,13 +29,6 @@
 
   </ul>
 
-  <script>
-    $('.back-link').click(function() {
-      parent.history.back();
-      return false;
-    });
-  </script>
-
 </div>
 
 {{_service.dump}}
@@ -77,50 +70,6 @@
   </div>
 
 </fieldset>
-
-<script>
-
-$(function(){
-
-  $.fn.goToElement = function(options) {
-
-    var elementSelector = options.elementSelector;
-    var elementGoTo = options.elementGoTo;
-    var onPageLoad = options.onPageLoad;
-
-    onPageLoad === true ? scrollNow() : clickToScroll();
-
-    function scrollNow() {
-      $('html, body').animate({
-        scrollTop: $(elementGoTo).offset().top + 'px'
-      }, 'fast');
-
-    }
-
-    function clickToScroll() {
-      $(elementSelector).on('click', function() {
-        scrollNow();
-      });
-    }
-
-  }
-
-});
-
-</script>
-
-<script>
-
-  $(function(){
-
-      $.fn.goToElement({
-        "elementSelector": ".or",
-        "elementGoTo" : ".name-details"
-      });
-
-   });
-
-</script>
 
 <fieldset class="name-details fieldset--border-top">
 
@@ -186,50 +135,6 @@ $(function(){
     </div>
 </div>
 
-  <script>
-
-$(function(){
-
-  $.fn.goToElement = function(options) {
-
-    var elementSelector = options.elementSelector;
-    var elementGoTo = options.elementGoTo;
-    var onPageLoad = options.onPageLoad;
-
-    onPageLoad === true ? scrollNow() : clickToScroll();
-
-    function scrollNow() {
-      $('html, body').animate({
-        scrollTop: $(elementGoTo).offset().top + 'px'
-      }, 'fast');
-
-    }
-
-    function clickToScroll() {
-      $(elementSelector).on('click', function() {
-        scrollNow();
-      });
-    }
-
-  }
-
-});
-
-</script>
-
-  <script>
-
-    $(function(){
-
-      $.fn.goToElement({
-        "elementSelector": ".or",
-        "elementGoTo" : ".name-details"
-      });
-
-    });
-
-  </script>
-
 </fieldset>
 
 <fieldset class="fieldset--border-top">
@@ -283,101 +188,6 @@ $(function(){
 
        </div>
    </div>
-
-<script>
-
-$(function(){
-
-  $.fn.passwordSwitch = function(options) {
-    // element selectors
-    var inputSelector = options.input ? options.input : '#fm-password';
-    var checkboxSelector = options.checkbox ? options.checkbox : '#pass_switch';
-
-    // click event
-    $(checkboxSelector).on('click', function() {
-      // swtich type
-      var inputSwitch = this.checked ? '<input class="form-input" type="text" id="fm-password" name="password" />' : '<input class="form-input" type="password" id="fm-password" name="password" />';
-      // update value
-      var passValue = $(inputSelector).val();
-      $(inputSelector).replaceWith(inputSwitch);
-      $(inputSelector).val(passValue);
-
-      $.fn.passwordStrengthChecker({
-        "input" : "#fm-password",
-        "display": "#fm-password-check .progress-completed"
-      });
-    });
-  }
-});
-
-</script>
-<script type="text/javascript">
-
-//TODO suggestion, since it is generic, it can be moved to global js etc.
-
-//console.log('in password strength checker file');
-$(function(){
-    //console.log('defining password strength checker');
-    $.fn.passwordStrengthChecker = function(options){
-        //console.log('instance of password strength checker');
-        var inputSelector = options.input;
-        var displaySelector = options.display;
-
-        if (!inputSelector) inputSelector = '#fm-password';
-        if (!displaySelector) displaySelector = '#fm-password-check .progress-completed';
-
-        var strength = $(displaySelector);
-
-        var passwordChanged = function(evt){
-            //console.log('keyup on password input');
-            var password_value = $(this).val();
-            var password_score = 0;
-
-            password_score += new RegExp('[a-z]').test(password_value); // lowercase character
-            password_score += new RegExp('[A-Z]').test(password_value); // uppercase character
-            password_score += new RegExp('[0-9]').test(password_value); // digit character
-            password_score += new RegExp('[^0-9a-zA-Z]').test(password_value); // symbol character
-            password_score += new RegExp('.{6,}').test(password_value); // 6 characters or more
-
-            // Check the password input against the regular expresses and change the meter
-            var bgPosition = 0;
-            if (4 <= password_score){
-                bgPosition = '80';
-            } else if (3 <= password_score){
-                bgPosition = '60';
-            } else if (2 <= password_score){
-                bgPosition = '40';
-            } else if (1 <= password_score) {
-                bgPosition = '20';
-            }
-            strength.fadeIn('slow').css('width', bgPosition + '%');
-
-            return true;
-        };
-
-        //attach event listener
-        $(inputSelector).keyup(passwordChanged);
-    }
-});
-</script>
-
-<script>
-
-  $(function(){
-
-       $.fn.passwordStrengthChecker({
-          "input" : "#fm-password",
-          "display": "#fm-password-check .progress-completed"
-       });
-
-      $.fn.passwordSwitch({
-        "input" : "#fm-password",
-        "checkbox": "#pass_switch"
-      });
-
-   });
-
-</script>
 
 </fieldset>
 

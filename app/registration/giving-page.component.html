@@ -29,13 +29,6 @@
 
   </ul>
 
-  <script>
-    $('.back-link').click(function() {
-      parent.history.back();
-      return false;
-    });
-  </script>
-
 </div>
 
 {{_service.dump}}
@@ -174,111 +167,7 @@
 
 </div>
 
-<script type="text/javascript">
-
-    $( document ).ready( function () {
-
-        $( '#mbs' ).frTabs({
-            tabElem : '.mb',
-            navId : 'target_nav',
-            navClass : 'target-nav',
-            navPosition : 'before',
-            navSource : 'a',
-            navSourceHide : false,
-            setHeight : false,
-            moneybuy : true
-        });
-
-        var container = $( '#fnd-target' ),
-            source = $( 'a' ),
-            input = $( '#fm-fundraising-target' ),
-			eventName = "";
-
-        CR.amountPicker( container, source, input );
-
-    });
-
-</script>
-
 </fieldset>
-
-<script>
-    $(function () {
-
-        /*
-         * Change giving page url
-         */
-        var changeLink = {
-            config: {
-                container: '.change-link',
-                button_wrapper: '.button-wrapper',
-                input_wrapper: '.input-wrapper',
-                link_wrapper: '.link-wrapper'
-            },
-            init: function (config) {
-
-                $('.error-messages.error-inline').hide();
-
-                // Allow override
-                $.extend(changeLink.config, config);
-
-                // click event
-                $(changeLink.config.button_wrapper).on('click', function (e) {
-                    e.preventDefault();
-                    $(this).addClass('hide').next().slideDown('3000').removeClass('hide');
-                });
-
-                $(changeLink.config.input_wrapper).find('#validate-givingpage').on('click', function(e){
-                    e.preventDefault();
-                    var container = $(this).closest(changeLink.config.container);
-                    var inputBox = container.find(changeLink.config.input_wrapper).find('input[type="text"]');
-                    var inputError = container.find(changeLink.config.input_wrapper).find('.error-messages');
-                    var buttonWrapper = container.find(changeLink.config.button_wrapper);
-
-                    var inputValue = inputBox.val();
-
-                    $.ajax({
-                        type: 'GET',
-                        url: '/search/giving-pages/validatename',
-                        dataType: "json",
-                        data: { givingPage : inputValue, format : 'json'},
-                        success: function(response) {
-                            if (response.status == 1) {
-                                inputBox.removeClass('form-error');
-                                buttonWrapper.closest('.form-item-wrapper.page_name').removeClass('validate-no');
-                                buttonWrapper.removeClass('hide');
-                                buttonWrapper.next().slideUp('3000').addClass('hide');
-                                inputError.hide();
-                                container.find(changeLink.config.link_wrapper).text(inputValue);
-                            } else {
-                                inputBox.addClass('form-error');
-                                inputError.show();
-                                container.find(changeLink.config.link_wrapper).text(inputValue);
-                            }
-                        },
-                        error: function() {
-                            inputBox.addClass('form-error');
-                            inputError.show();
-                        }
-                    });
-                });
-
-                // call function
-                changeLink.updateContent();
-            },
-            updateContent: function () {
-                // update link value when input field keypress
-                $(changeLink.config.input_wrapper).find('input[type="text"]').on('keypress keydown keyup', function () {
-                    var link_value = $(this).val();
-                    $(this).closest(changeLink.config.container).find(changeLink.config.link_wrapper).text(link_value);
-                });
-            }
-        };
-        // init
-        changeLink.init();
-    });
-
-</script>
 
 <fieldset class="fieldset--border-top terms-and-conditions">
 

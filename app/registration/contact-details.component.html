@@ -29,13 +29,6 @@
 
   </ul>
 
-  <script>
-    $('.back-link').click(function() {
-      parent.history.back();
-      return false;
-    });
-  </script>
-
 </div>
 
 {{_service.dump}}
@@ -159,25 +152,6 @@
         </div>
     </div>
 </fieldset>
-<script>
-
-var display_address_input_fields = false;//default value
-
-$( document ).ready( function() {
-    $.addressLookup({
-       showaddressfields: display_address_input_fields
-    });
-});
-
-function nonGBAddress(nonGB, displayAddressFields) {
-    var addressFieldsStatus = nonGB || displayAddressFields ? 'block' : 'none';
-    var otherFieldsStatus = nonGB ? 'none' : 'block';
-    $('label[for="county"]').parent().css('display', otherFieldsStatus);
-    $('#post-code-field').css('display', otherFieldsStatus);
-    $('#pc-address-fields+a').css('display', otherFieldsStatus);
-    $('#pc-address-fields').css('display', addressFieldsStatus);
-}
-</script>
 
 <fieldset class="fieldset--border-top">
 
@@ -336,31 +310,6 @@ function nonGBAddress(nonGB, displayAddressFields) {
     </fieldset>
 
   </div>
-
-<script>
-    $( document ).ready( function() {
-
-        var container = $( '#aff-select' ),
-            conditionalParent = '.form-col2',
-			selected = container.find( 'input[type=radio]:checked' );
-
-			CR.initAffiliateSelectEvent( container, conditionalParent );
-
-			selected.closest(".form-col1").next(conditionalParent).show();
-
-                        radioBtns = container.find('input[type=radio]');
-                        radioBtns.change(function(e) {
-                            // reset the company selection in case of chaning the radio options
-                            $('#fm-company').removeData("dropkick");
-                            $('#fm-company-metadata').parent().hide();
-                            $('#fm-company-metadata').val("");
-                            $('#dk_container_fm-company').remove();
-                            $('#fm-company option:first-child').attr("selected", "selected");
-                            $('#fm-company').dropkick();
-                        });
-
-        });
-</script>
 
         <div class="container">
                 <div id="btn_bottom" class="form-nav">
