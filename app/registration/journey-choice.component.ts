@@ -23,4 +23,13 @@ export class JourneyChoiceComponent {
     this._router.navigate(['/Registration/LoginDetails']);
   }
 
+  showPageTypeAll() {
+    return (this._service.model.age === 'adult' 
+    || this._service.model.age === 'junior');
+  }
+
+  showPageTypeAdult() {
+    return (this._service.model.age === 'adult');
+  }
+
 }
