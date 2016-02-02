@@ -38,6 +38,8 @@
 
 </div>
 
+{{_service.dump}}
+
       <div class="content">
           <section class="intro">
               <div class="layout-wrap">
@@ -76,7 +78,7 @@
             <div class="pc-search clearfix">
 
                 <div class="form-item-wrapper ">
-                    <input class="form-input" type="text" id="postcode" name="postcode" placeholder="AB12 3CD" value="" data-submit-with="submit-search" />
+                    <input class="form-input" type="text" id="postcode" name="postcode" placeholder="AB12 3CD" value="" data-submit-with="submit-search" [(ngModel)]="_service.model.userAddressPostcode" />
                     <span class="icons icons-zoom"> </span>
                     <input type="button" id="search" name="search" value="Find my address" data-btn="submit-search" />
 
@@ -153,7 +155,7 @@
 
         <div class="form-item-wrapper ">
             <label for="contactnumber">Contact number<span class="form-required toggle-mandatory" title="This field is required.">*</span></label>
-            <input class="form-input" type="tel" id="contactnumber" name="phone" value="" />
+            <input class="form-input" type="tel" id="contactnumber" name="phone" value="" [(ngModel)]="_service.model.userTelephone" />
         </div>
     </div>
 </fieldset>
@@ -191,7 +193,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
                 <div class="form-item-wrapper">
 
                   <input type="hidden" name="post_preference" value="-1" />
-                  <input id="post_preference_1" class="form-checkbox" type="checkbox" name="post_preference" value="1" checked="checked" />
+                  <input id="post_preference_1" class="form-checkbox" type="checkbox" name="post_preference" value="1" checked="checked" [(ngModel)]="_service.model.contactOptinPost" />
                   <label for="post_preference_1">I'm happy to receive items by post, a couple of times a year (such as a free Fundraising kit). Untick if you'd rather not.</label>
 
                 </div>
@@ -205,7 +207,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
                 <div class="form-item-wrapper">
 
                   <input type="hidden" name="email_preference" value="-1" />
-                  <input id="email_preference_1" class="form-checkbox" type="checkbox" name="email_preference" value="1" checked="checked" />
+                  <input id="email_preference_1" class="form-checkbox" type="checkbox" name="email_preference" value="1" checked="checked" [(ngModel)]="_service.model.contactOptinEmail" />
 
                   <label for="email_preference_1">I'm happy to get exclusive news and handy fundraising bits and bobs by email. Untick if you'd rather not.</label>
                 </div>
@@ -230,7 +232,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
 
       <div class="form-col1">
 
-        <input type="radio" id="none-of-the-above" name="affiliation" value="1" checked="checked" />
+        <input type="radio" id="none-of-the-above" name="affiliation" value="1" checked="checked" (click)="_service.model.affiliationType=1" [checked]="_service.model.affiliationType === 1" />
 
         <label for="none-of-the-above">
 
@@ -247,7 +249,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
 
       <div class="form-col1">
 
-        <input type="radio" id="affiliation-partner" name="affiliation" data-conditionalfor="fm-company" value="2"  />
+        <input type="radio" id="affiliation-partner" name="affiliation" data-conditionalfor="fm-company" value="2" (click)="_service.model.affiliationType=2" [checked]="_service.model.affiliationType === 2" />
 
         <label for="affiliation-partner">
 
@@ -263,7 +265,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
           <div class="form-item-wrapper">
 
             <label for="fm-company">Please select from the list below * <span class="hint" [hidden]="true">Make your money go further! If you work for one of our fabulous partners listed here, let us know and your fundraising will be added to their total. Even better, if your company runs a matched giving scheme, they may be able to match the total you have raised. Please select their name from the list to allow us to share your name, email address, and amount raised with your company to help them make a further donation to us (don't worry, they are only allowed to use your details for this purpose, and not to communicate with you about your fundraising).</span></label>
-              <select class="form-select" id="fm-company" name="company" data-conditionalon="affiliation-partner">
+              <select class="form-select" id="fm-company" name="company" data-conditionalon="affiliation-partner" [(ngModel)]="_service.model.affiliationId">
                 <option  value="">Select CR Partner</option>
                               <option  value="364">Sainsbury's</option>
                               <option  value="365">British Airways</option>
@@ -312,7 +314,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
       <div class="form-col1">
 
           <div class="form-item-wrapper">
-            <input type="radio" id="affiliation-organisation" name="affiliation" data-conditionalfor="fm-company-other" value="3"  />
+            <input type="radio" id="affiliation-organisation" name="affiliation" data-conditionalfor="fm-company-other" value="3" (click)="_service.model.affiliationType=3" [checked]="_service.model.affiliationType === 3" />
             <label for="affiliation-organisation">
 
               <span></span>
@@ -326,7 +328,7 @@ function nonGBAddress(nonGB, displayAddressFields) {
 
         <div class="form-item-wrapper">
           <label for="fm-company-other">Please tell us the name of the organisation *</label>
-          <input type="text" id="fm-company-other" class="form-input" name="company_other" data-conditionalon="affiliation-organisation" value="" />
+          <input type="text" id="fm-company-other" class="form-input" name="company_other" data-conditionalon="affiliation-organisation" value="" [(ngModel)]="_service.model.affiliationText" />
         </div>
 
       </div>

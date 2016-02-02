@@ -38,12 +38,14 @@
 
 </div>
 
+{{_service.dump}}
+
       <div class="content">
           <section class="intro">
               <div class="layout-wrap">
                   <div class="inner">
 
-              <h1>FIRSTNAME, let's complete your Giving Page</h1>
+              <h1>{{_service.model.userFirstName}}, let's complete your Giving Page</h1>
 
         <p>Just a few final details and your Sport Relief Giving Page will be up and running.</p>
 
@@ -77,13 +79,13 @@
 
     </div>
 
-    <input class="form-input" type="text" name="title" id="fm-title" value="" />
+    <input class="form-input" type="text" name="title" id="fm-title" value="" [(ngModel)]="_service.model.pageTitle" />
 
   </div>
 
   <div class="form-item-wrapper not-searchable clear">
 
-        <input class="form-checkbox" type="checkbox" id="fm-is-not-searchable" name="is_not_searchable" value="yes" />
+        <input class="form-checkbox" type="checkbox" id="fm-is-not-searchable" name="is_not_searchable" value="yes" [(ngModel)]="!_service.model.pageIsSearchable" />
 
       <label for="fm-is-not-searchable" class="type--md">Hide my Giving Page from search results on http://sr16-spl-qa.sportrelief.com and the leaderboard</label>
       <p>Don't be shy, if the public can't find you they can't sponsor you!</p>
@@ -112,7 +114,7 @@
       </div>
 
       <div class="input-wrapper hide">
-        <p><input class="form-input" type="text" name="page_name" id="fm-page-name" value="firstnamelastname" /></p>
+        <p><input class="form-input" type="text" name="page_name" id="fm-page-name" value="firstnamelastname" [(ngModel)]="_service.model.pageLink" /></p>
         <div class="error-messages error-inline">This name has already been taken</div>
         <p><a href="#" class="button button--black button--fixwidth" id="validate-givingpage">Save</a></p>
       </div>
@@ -163,7 +165,7 @@
 
       <span class="currency-wrap">
         <span>&pound;</span>
-        <input class="form-input" type="text" name="fundraising_target" id="fm-fundraising-target" value="" />
+        <input class="form-input" type="text" name="fundraising_target" id="fm-fundraising-target" value="" [(ngModel)]="_service.model.pageFundraisingTarget" />
       </span>
 
     </div>
@@ -284,7 +286,7 @@
 
   <div class="form-item-wrapper ">
 
-    <input class="form-checkbox" type="checkbox" id="fm-terms" name="terms" value="yes"  />
+    <input class="form-checkbox" type="checkbox" id="fm-terms" name="terms" value="yes" [(ngModel)]="_service.model.pageTermsConditions" />
 
       <label for="fm-terms">By submitting your details, you confirm that you've read, understood and agree to the <a id="terms_link" class="text-link" target="_blank" href="http://sr16-spl-qa.sportrelief.com/legal#terms-of-use">terms of use</a>.</label>
 

@@ -1,5 +1,7 @@
 <main>
 
+{{_service.dump}}
+
       <div class="content">
           <section class="intro">
               <div class="layout-wrap">
@@ -36,14 +38,14 @@
 
             <div class="form-item-wrapper">
 
-              <input id="age_child" name="age" type="radio" value="junior" />
+              <input id="age_child" name="age" type="radio" value="junior" (click)="_service.model.age='junior'" [checked]="_service.model.age === 'junior'" />
               <label for="age_child" class="age-u16" id="u16-radio-text"><span></span>Under 16</label>
 
             </div>
 
             <div class="form-item-wrapper">
 
-              <input id="age_adult" name="age" type="radio" value="adult" />
+              <input id="age_adult" name="age" type="radio" value="adult" (click)="_service.model.age='adult'" [checked]="_service.model.age === 'adult'" />
               <label for="age_adult" class="age-o16" id="o16-radio-text" ><span></span>16 or over</label>
 
             </div>
@@ -73,7 +75,7 @@
               </h3>
 
 <p id="ind-journey-text-body">If you're doing a solo activity like a sponsored silence, this is where you start.</p>
-            <input id="fm-on-my-own" class="button button--purple" name="submit[individual]" value="Set up My Own Page" type="submit" />
+            <input id="fm-on-my-own" class="button button--purple" name="submit[individual]" value="Set up My Own Page" type="submit" (click)="_service.model.pageType='individual'" />
 
           </section> <!-- sub-1 -->
 
@@ -88,7 +90,7 @@
               </h3>
 
 <p id="ind-journey-text-body">If you want to fundraise with friends, family or on behalf of your School, Nursery or Youth Group, become a Team Captain and set up a new fundraising team Giving Page here.</p>
-            <input id="fm-set-up-team" class="button button--purple" name="submit[create-team]" value="Set up a Team Page" type="submit" />
+            <input id="fm-set-up-team" class="button button--purple" name="submit[create-team]" value="Set up a Team Page" type="submit" (click)="_service.model.pageType='create-team'" />
 
           </section> <!-- sub-2 -->
 
@@ -107,7 +109,7 @@
 
               <div class="search-fields-wrap">
                   <input class="form-input" name="team_search" id="fm-search-teams" data-submit-with="submit-team-search" type="search" placeholder="Search for a Team" />
-                  <input id="submit" name="submit[join-team]" value=" " data-btn="submit-team-search" class="button button--purple" type="submit" />
+                  <input id="submit" name="submit[join-team]" value=" " data-btn="submit-team-search" class="button button--purple" type="submit" (click)="_service.model.pageType='join-team'" />
               </div>
 
             </div><!-- /search-box -->
